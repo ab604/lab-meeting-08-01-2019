@@ -22,37 +22,6 @@ body { font-family: 'Open Sans'; }
     line-height: 0.5em;
 }
 
-/*
-.title-slide hgroup > h1 {
-  font-family: 'Open Sans', sanserif;
-}
-*/
-
-/* line 888, ../scss/default.scss 
-.title-slide hgroup {
-  bottom: 100px;
-}
-/* line 891, ../scss/default.scss 
-.title-slide hgroup h1 {
-  font-size: 200px;
-  line-height: 1.4;
-  letter-spacing: -3px;
-  color: #E1E8EC;
-}
-/* line 898, ../scss/default.scss 
-.title-slide hgroup h2 {
-  font-size: 100px;
-  color: #E1E8EC;
-  font-weight: inherit;
-}
-/* line 904, ../scss/default.scss 
-.title-slide hgroup p {
-  font-size: 100px;
-  color: #E1E8EC;
-  line-height: 1.3;
-  margin-top: 2em;
-}
-*/
 
 div.remark-slide-container h2 {
 	font-family: 'Open Sans', sans-serif;
@@ -72,7 +41,7 @@ div.remark-slide-container h3 {
 .title-slide {
 	font-family: 'Open Sans', sans-serif;
 	background-color: #005C84;
-   	background-image: url(UoS_Logo.svg);
+   background-image: url(UoS_Logo.svg);
 	background-position: left 20px top 20px;
 	background-size: 300px 75px;
 }
@@ -120,7 +89,7 @@ div.remark-slide-container .fullscale {
     text-shadow: 0 0 20px #333;
 }
 
-div.remark-slide-container .fullscale h1 {
+div.remark-slide-container .fullscale {
 	color: #fff;
 
 }
@@ -141,3 +110,100 @@ div.remark-slide-container .fullscale p {
   font-family: 'Ubuntu Mono';
   font-size: 100%;
 }
+
+
+
+
+/* Font sizes */
+.huge { font-size: 200%;}
+.large { font-size: 130% }
+.small { font-size: 70% }
+.tiny { font-size: 40%;}
+.footnotesize { font-size: 80% }
+.scriptsize { font-size: 70% }
+
+
+/* Colors are defined by the          */
+/* UoS Horizon Branding Color Palette */
+/* https://www.southampton.ac.uk/brand/category/colour/ */
+.red { color: #E73037; }
+.yellow { color: #FCBC00; }
+.orange { color: #F09905; }
+.purple { color: #8D3970; }
+.magenta {color: #D5007F;}
+
+/* Colors are defined by the          */
+/* UoS Marine Branding Color Palette */
+/* https://www.southampton.ac.uk/brand/category/colour/ */
+.marine-1 {color: #005C84;}
+.marine-2 {color: #74C9E5;}
+.marine-3 {color: #3CBAC6;}
+.marine-4 {color: #B3DBD2;}
+.marine-5 {color: #4BB694;}
+.marine-6 {color: #C1D100;}
+
+.bold { font-weight: bold; }
+.bolder { font-weight: bolder; }
+
+/*  footer */
+.footer-note {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    width: 200px;
+    height: 25px;
+}
+
+.content-box-white,
+.content-box-gray,
+.content-box-grey,
+.content-box-neutral,
+.content-box-duke-green,
+.content-box-green,
+.content-box-purple,
+.content-box-red,
+.content-box-yellow {
+    border-radius: 15px;
+    margin: 0 0 25px;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+}
+
+.content-box-white {
+    /* set opacity in last decimal value of rgba */
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,.85);
+
+}
+
+.uos-logo {
+  background-image: url(UoS_Logo.svg);
+	left: 20px; 
+	top: 20px;
+	size: 300px 75px;
+}
+
+.marine-slide {
+  background-color: #005C84;
+  color: white;
+}
+
+.horizon-1 {
+  background-color:#FCBC00;
+}
+
+.horizon-1 h1, .horizon-1 h2, .horizon-1 h3 {
+  color: #001A57;
+  line-height: 0.8em;
+}
+
+.uos-title {
+  background-color: #005C84;
+  color: white;
+  background-image: url(UoS_Logo.svg);
+	background-position: left 20px top 20px;
+	background-size: 300px 75px;
+}
+
+.horiz-1 {color: #FCBC00;}
