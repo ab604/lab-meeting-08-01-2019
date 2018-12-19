@@ -1,12 +1,12 @@
 ---
-title: "LAB MEETING"
+title: "Lab meeting .huge[Yellow]"
 #subtitle: "10th Anniversary Special"
 author: "Alistair Bailey"
 date: "8th January 2019"
 output:
   xaringan::moon_reader:
-    seal: false
-    css: ["default", "assets/my-theme.css"]
+    #seal: false
+    css: ["default","uos.css", "uos-fonts.css"]
     chakra: libs/remark-latest.min.js
     lib_dir: libs
     nature:
@@ -21,34 +21,41 @@ options(htmltools.dir.version = FALSE)
 
 ```
 
-class: marine-slide,center,middle
-background-image: url('assets/UoS_Logo.svg')
-background-position: left 20px top 20px
-background-size: 300px 75px
+class: marine-slide,middle,center
 
-.huge[Lab Meeting] 
+# .small[HOW TO CREATE]<br/> .yellow.large.bolder[EFFECTIVE]<br/> .huge.light[SLIDES]
 
-.orange.bold.content-box-white[Alistair Bailey]
+
+---
+
+.pull-left[Paul & Tim]
+
+.pull-right[Ben]
 
 ---
 
 class: horizon-1,center,middle
 
-# Horizon heading 1
-## Heading 2
+# Horizon
+## Heading 2 Neutral
 ### Dying cells actively regulate adaptive immune responses
 
 .footer-note.tiny[[Nature Reviews Immunology volume 17, pages 262–275 (2017)](https://www.nature.com/articles/nri.2017.9)]
 
 ---
 
-class: inverse, center, middle
+class: horizon-3, center, middle
 
-# Projects
+# Horizon 3
 
 ---
 
 class: middle
+
+```{r eval=FALSE}
+# With red
+x <- 2+2
+```
 
 + <mark>Skin sensitiser peptidomes and proteomics</mark>
 --
