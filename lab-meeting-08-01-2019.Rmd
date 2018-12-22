@@ -21,6 +21,18 @@ options(htmltools.dir.version = FALSE)
 library(tidyverse)
 ```
 
+# Projects
+
+1. <mark>Skin sensitiser peptidomes and proteomics</mark>
+--
+
+2. Oesophageal and lung cancer peptidomes and proteomics
+--
+
+3. Tamanian Devil peptidomes and proteomics
+
+---
+
 class: inverse,middle,center
 
 # .horizon-1.huge.bolder[TEAM]<br/> .large.light[SCIENCE]
@@ -55,6 +67,28 @@ class: inverse,middle,center
 - .bold[The R community]
 
 ]
+
+---
+
+class: horizon-1-slide
+background-image: url(img/DNCB.png)
+background-size: 30%
+background-position: left 90% top 50%
+
+# DNCB
+
+1-chloro-2,4-dinitrobenzene
+
+---
+
+class: horizon-1-slide
+background-image: url(img/DNCB.png)
+background-size: 30%
+background-position: left 90% top 50%
+
+# DNP
+
+2,4-dinitrophenylated (DNP) protein conjugates
 
 ---
 
