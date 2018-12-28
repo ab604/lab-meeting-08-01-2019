@@ -20,33 +20,57 @@ output:
 options(htmltools.dir.version = FALSE)
 library(tidyverse)
 ```
----
 class: inverse
 background-image: url(img/rakeboarding.png)
-background-size: 45%
----
-
-class: inverse,center
-background-image: url(img/Blausen_0014_AllergicDermatitis.png)
-background-size: 50%
-
-## Skin sensitiser peptidomes and proteomics
+background-size: contain
 
 ---
 
-class: inverse,center
+class: right
 background-image: url(img/oesophageal-cancer-figure-1.jpg)
-background-size: 30%
+background-position: left
+background-size: contain
 
-## Oesophageal and lung cancer peptidomes and proteomics
+# Cancer proteomics
 
 ---
 
-class: inverse,center
+class: inverse,center,top
 background-image: url(img/tasmanian-devil.jpg)
-background-size: 40%
+background-position: center
+background-size: contain
 
-## Tasmanian Devil peptidomes and proteomics
+# .content-box-marine[Tasmanian Devil proteomics]
+
+---
+
+class: center,right
+background-image: url(img/Blausen_0014_AllergicDermatitis.png)
+background-position: left
+background-size: contain
+
+# Skin sensitiser proteomics
+
+---
+
+class: inverse,middle
+
+.pull-left[
+
+# Papers for 2019
+
++ Skin sensitiser peptidomes and protein turnover
++ Skin sensitiser whole cell proteomics
++ Oesophageal cancer peptidome
++ Tasmanian Devil peptidomes
++ Tasmanian Devil DFT2 origins
+]
+
+.pull-right[
+<video width=600 height=600 autoplay loop> 
+<source src="assets/wk3AUOvx86YTUSiw.mp4" type="video/mp4"/>
+</video>
+]
 
 ---
 
@@ -56,18 +80,20 @@ class: inverse,middle,center
 
 ---
 
+class: inverse
+
 .pull-left[
 
 ### Southampton
 
 #### Elliott Group
 - Tim Elliott
-- <mark>Rachel Darley</mark>
-- <mark>Nasia Kontouli</mark>
+- .horizon-1.bold[Rachel Darley]
+- .horizon-1.bold[Nasia Kontouli]
 
 #### Centre for Proteomic Research
 - Paul Skipp
-- <mark>Ben Nicholas</mark>
+- .horizon-1.bold[Ben Nicholas]
 - Sergio Regufe Da Mota
 - Erika Parkinson
 
@@ -88,11 +114,11 @@ class: inverse,middle,center
 ---
 class: inverse
 background-image: url(img/donor-card.png)
-background-size: 90%
+background-size: contain
 ---
 class: inverse
 background-image: url(img/tinder-dncb.png)
-background-size: 80%
+background-size: contain
 ---
 
 class: inverse
@@ -147,7 +173,7 @@ class: horizon-2-slide, center, middle
 
 class: inverse,center,middle,
 
-```{r cell-viability, echo=FALSE, fig.retina=4, out.height="100%", out.width="60%", warning=FALSE}
+```{r cell-viability, echo=FALSE, fig.retina=4, out.width="60%",warning=FALSE}
 readr::read_rds("data/cell-viability-output-20-12-2018.rds") %>% 
   ggplot(aes(conc,max, colour = assay)) + 
   geom_point() +
@@ -165,40 +191,8 @@ readr::read_rds("data/cell-viability-output-20-12-2018.rds") %>%
    facet_wrap(treatment ~ cell)
 ```
 
----
 
-+ <mark>Skin sensitiser peptidomes and proteomics</mark>
---
 
-+ Oesophageal and lung cancer peptidomes and proteomics
---
-
-+ Tamanian Devil peptidomes and proteomics
-
----
-
-class: inverse,center, middle
-
-<video width=600 height=600 autoplay loop> 
-<source src="assets/wk3AUOvx86YTUSiw.mp4" type="video/mp4"/>
-</video>
-
----
-class: inverse, center, middle
-
-# Papers for 2019
-
----
-
-class: middle
-
-+ Skin sensitiser peptidomes and protein turnover
-+ Skin sensitiser whole cell proteomics
-+ Oesophageal cancer peptidome
-+ Tasmanian Devil peptidomes
-+ Tasmanian Devil DFT2 origins
-
----
 
 
 background-image: url("assets/kitten.jpeg")

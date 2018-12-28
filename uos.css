@@ -30,6 +30,8 @@ Marine 1, Horizon 1 and Horizon 2
 .horizon-4 {color: #D5007F;}
 .horizon-5 { color: #8D3970;}
 
+.neutral {color: #495961;}
+
 /*content boxes */
 .content-box-white,
 .content-box-neutral,
@@ -64,8 +66,8 @@ Marine 1, Horizon 1 and Horizon 2
 /* marine 5 */
 .content-box-marine {
     /* set opacity in last decimal value of rgba */
-    background-color: rgb(75,182,148);
-    background-color: rgba(75,182,148,.85);
+    background-color: rgb(00,85,127);
+    background-color: rgba(00,85,127,.85);
 }
 
 /* horizon 3 */
