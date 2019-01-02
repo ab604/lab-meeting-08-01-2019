@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="author" content="Alistair Bailey" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link rel="stylesheet" href="uos.css" type="text/css" />
+    <link href="libs/remark-css/ninjutsu.css" rel="stylesheet" />
     <link rel="stylesheet" href="uos-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="uos.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -73,35 +74,51 @@ class: inverse,middle
 ]
 
 ---
+class: center,right
+background-image: url(img/Blausen_0014_AllergicDermatitis.png)
+background-position: left
+background-size: contain
 
-class: inverse,middle,center
-
-# .horizon-1.huge.bolder[TEAM]&lt;br/&gt; .large.light[SCIENCE]
+# Skin sensitiser proteomics
 
 ---
 
-class: inverse
+class: split-two 
 
-.pull-left[
+.column.inverse[.content.vmiddle.center[
 
-### Southampton
+# .horizon-1.huge.bolder[TEAM]
+]]
 
-#### Elliott Group
+.column.horizon-1-slide[.content.vmiddle.center[
+
+# .huge.bolder[SCIENCE]
+]]
+
+---
+
+class: split-two 
+
+.column.inverse[.content[
+
+# Southampton
+
+### Elliott Group
 - Tim Elliott
 - .horizon-1.bold[Rachel Darley]
 - .horizon-1.bold[Nasia Kontouli]
 
-#### Centre for Proteomic Research
+### Centre for Proteomic Research
 - Paul Skipp
 - .horizon-1.bold[Ben Nicholas]
 - Sergio Regufe Da Mota
 - Erika Parkinson
 
-]
+]]
 
-.pull-right[
+.column.horizon-1-slide[.content[
 
-### Elsewhere 
+# Elsewhere 
 
 - .bold[Unilever:] Gavin Maxwell, Maja Aleksic
 - .bold[Oxford:] Nicola Ternette, Annalisa Nicastri
@@ -109,7 +126,13 @@ class: inverse
 - .bold[Lausanne:] Michal Bassaini-Sternberg
 - .bold[The R community]
 
-]
+]]
+
+---
+
+class: inverse, center,middle
+
+# Skin sensitisation is induced by the .horizon-1.bold[haptenation] of proteins
 
 ---
 class: inverse
@@ -119,39 +142,41 @@ background-size: contain
 class: inverse
 background-image: url(img/tinder-dncb.png)
 background-size: contain
----
-
-class: inverse
-
-# Three factors influencing likelihood of modification
-
-- Electrophilicity of sensitiser
-- Nucleophilicity of the donor
-- Steric constraints
 
 ---
 
-class: horizon-1-slide
-background-image: url(img/DNCB.png)
-background-size: 30%
-background-position: left 90% top 50%
+class: split-two 
 
+.column.inverse[.content.center.vmiddle[
 
+# Hypothesis
 
-# DNCB
+.horizon-1.bold[DNCB] (2,4-Dinitrochlorobenzene) and .horizon-1.bold[DPCP] (Diphenylcyclopropenone)
+modified peptides stimulate CD8+ T-cells
 
-1-chloro-2,4-dinitrobenzene
+]]
+
+.column.horizon-1-slide[.content.middle.center[
+
+&lt;img src="img/mhc-dncb-peptide.png" width="85%" /&gt;
+]]
 
 ---
 
-class: horizon-1-slide
-background-image: url(img/DNCB.png)
-background-size: 30%
-background-position: left 90% top 50%
+class: split-two 
 
-# DNP
+.column.inverse[.content.center.vmiddle[
 
-2,4-dinitrophenylated (DNP) protein conjugates
+# Hypothesis
+
+.horizon-1.bold[DNCB] (2,4-Dinitrochlorobenzene) and .horizon-1.bold[DPCP] (Diphenylcyclopropenone)
+modulate the peptidome
+
+]]
+
+.column.horizon-1-slide[.content.middle.center[
+
+]]
 
 ---
 
@@ -165,25 +190,68 @@ Dying cells actively regulate adaptive immune responses
 
 ---
 
-class: horizon-2-slide, center, middle
+class: split-two 
 
-# Horizon 2
+.column.inverse[.content.center.vmiddle[
+
+# At what concentration are DNCB and DPCP toxic?
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/cell-viability-1.png" width="504" /&gt;
+
+]]
+
+---
+
+layout: true
+class: split-four 
+
+.column.inverse[.content.center.vmiddle[
+## Sample preparation
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Mass spectrometry
+]]
+
+.column.inverse[.content.center.vmiddle[
+## Peptide identification
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Bioinformatics &amp; validation
+]]
 
 ---
 
-class: inverse,center,middle,
-
-&lt;img src="lab-meeting-08-01-2019_files/figure-html/cell-viability-1.png" width="60%" /&gt;
-
-
-
-
-
-background-image: url("assets/kitten.jpeg")
-background-position: 50% 50%
-class: center, bottom
+class: show-1000
 
 ---
+
+class: show-1100
+count: false
+
+---
+
+class: show-1110
+count: false
+
+---
+
+class: show-1111
+count: false
+
+---
+
+layout: false
+class: inverse
+background-image: url(img/george-costanza.gif)
+background-size: fill
+
+# The end
     </textarea>
 <script src="libs/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

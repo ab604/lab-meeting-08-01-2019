@@ -6,7 +6,7 @@ date: "8th January 2019"
 output:
   xaringan::moon_reader:
     #seal: false
-    css: ["default","uos.css", "uos-fonts.css"]
+    css: ["default", "uos-fonts.css","ninjutsu","uos.css"]
     chakra: libs/remark-latest.min.js
     lib_dir: libs
     nature:
@@ -73,35 +73,51 @@ class: inverse,middle
 ]
 
 ---
+class: center,right
+background-image: url(img/Blausen_0014_AllergicDermatitis.png)
+background-position: left
+background-size: contain
 
-class: inverse,middle,center
-
-# .horizon-1.huge.bolder[TEAM]<br/> .large.light[SCIENCE]
+# Skin sensitiser proteomics
 
 ---
 
-class: inverse
+class: split-two 
 
-.pull-left[
+.column.inverse[.content.vmiddle.center[
 
-### Southampton
+# .horizon-1.huge.bolder[TEAM]
+]]
 
-#### Elliott Group
+.column.horizon-1-slide[.content.vmiddle.center[
+
+# .huge.bolder[SCIENCE]
+]]
+
+---
+
+class: split-two 
+
+.column.inverse[.content[
+
+# Southampton
+
+### Elliott Group
 - Tim Elliott
 - .horizon-1.bold[Rachel Darley]
 - .horizon-1.bold[Nasia Kontouli]
 
-#### Centre for Proteomic Research
+### Centre for Proteomic Research
 - Paul Skipp
 - .horizon-1.bold[Ben Nicholas]
 - Sergio Regufe Da Mota
 - Erika Parkinson
 
-]
+]]
 
-.pull-right[
+.column.horizon-1-slide[.content[
 
-### Elsewhere 
+# Elsewhere 
 
 - .bold[Unilever:] Gavin Maxwell, Maja Aleksic
 - .bold[Oxford:] Nicola Ternette, Annalisa Nicastri
@@ -109,7 +125,13 @@ class: inverse
 - .bold[Lausanne:] Michal Bassaini-Sternberg
 - .bold[The R community]
 
-]
+]]
+
+---
+
+class: inverse, center,middle
+
+# Skin sensitisation is induced by the .horizon-1.bold[haptenation] of proteins
 
 ---
 class: inverse
@@ -119,39 +141,43 @@ background-size: contain
 class: inverse
 background-image: url(img/tinder-dncb.png)
 background-size: contain
----
-
-class: inverse
-
-# Three factors influencing likelihood of modification
-
-- Electrophilicity of sensitiser
-- Nucleophilicity of the donor
-- Steric constraints
 
 ---
 
-class: horizon-1-slide
-background-image: url(img/DNCB.png)
-background-size: 30%
-background-position: left 90% top 50%
+class: split-two 
 
+.column.inverse[.content.center.vmiddle[
 
+# Hypothesis
 
-# DNCB
+.horizon-1.bold[DNCB] (2,4-Dinitrochlorobenzene) and .horizon-1.bold[DPCP] (Diphenylcyclopropenone)
+modified peptides stimulate CD8+ T-cells
 
-1-chloro-2,4-dinitrobenzene
+]]
+
+.column.horizon-1-slide[.content.middle.center[
+
+```{r,out.width="85%",echo=FALSE}
+knitr::include_graphics("img/mhc-dncb-peptide.png")
+```
+]]
 
 ---
 
-class: horizon-1-slide
-background-image: url(img/DNCB.png)
-background-size: 30%
-background-position: left 90% top 50%
+class: split-two 
 
-# DNP
+.column.inverse[.content.center.vmiddle[
 
-2,4-dinitrophenylated (DNP) protein conjugates
+# Hypothesis
+
+.horizon-1.bold[DNCB] (2,4-Dinitrochlorobenzene) and .horizon-1.bold[DPCP] (Diphenylcyclopropenone)
+modulate the peptidome
+
+]]
+
+.column.horizon-1-slide[.content.middle.center[
+
+]]
 
 ---
 
@@ -165,15 +191,17 @@ Dying cells actively regulate adaptive immune responses
 
 ---
 
-class: horizon-2-slide, center, middle
+class: split-two 
 
-# Horizon 2
+.column.inverse[.content.center.vmiddle[
 
----
+# At what concentration are DNCB and DPCP toxic?
 
-class: inverse,center,middle,
+]]
 
-```{r cell-viability, echo=FALSE, fig.retina=4, out.width="60%",warning=FALSE}
+.column.horizon-1-slide[.content.center.vmiddle[
+
+```{r cell-viability, echo=FALSE, fig.retina=4,warning=FALSE}
 readr::read_rds("data/cell-viability-output-20-12-2018.rds") %>% 
   ggplot(aes(conc,max, colour = assay)) + 
   geom_point() +
@@ -186,17 +214,58 @@ readr::read_rds("data/cell-viability-output-20-12-2018.rds") %>%
   xlab(label = expression(Concentration~mu*M)) +
   ylab("Percent") +
   ylim(-10,220) +
-  theme_minimal() +
+  theme_minimal(base_size = 14) +
   theme(panel.spacing = unit(2, "lines")) +
    facet_wrap(treatment ~ cell)
 ```
 
-
-
-
-
-background-image: url("assets/kitten.jpeg")
-background-position: 50% 50%
-class: center, bottom
+]]
 
 ---
+
+layout: true
+class: split-four 
+
+.column.inverse[.content.center.vmiddle[
+## Sample preparation
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Mass spectrometry
+]]
+
+.column.inverse[.content.center.vmiddle[
+## Peptide identification
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Bioinformatics & validation
+]]
+
+---
+
+class: show-1000
+
+---
+
+class: show-1100
+count: false
+
+---
+
+class: show-1110
+count: false
+
+---
+
+class: show-1111
+count: false
+
+---
+
+layout: false
+class: inverse
+background-image: url(img/george-costanza.gif)
+background-size: fill
+
+# The end
