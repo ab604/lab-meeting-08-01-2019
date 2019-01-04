@@ -6,7 +6,7 @@ date: "8th January 2019"
 output:
   xaringan::moon_reader:
     #seal: false
-    css: ["default", "uos-fonts.css","ninjutsu","uos.css"]
+    css: ["default", "uos-fonts.css","ninjutsu","uos.css","assets/ninpo.css"]
     chakra: libs/remark-latest.min.js
     lib_dir: libs
     nature:
@@ -16,7 +16,7 @@ output:
       ratio: '16:9'
 ---
 
-```{r setup, include=FALSE, warning=FALSE}
+```{r setup, include=FALSE, warning=FALSE, cache=TRUE}
 options(htmltools.dir.version = FALSE)
 library(tidyverse)
 library(UpSetR)
@@ -32,6 +32,16 @@ dat_sub <- dat %>% select(peptide,length,exp_name,accession) %>%
                                          "Control","DNCB"),
          peptide = str_replace_all(peptide,"\\(.*?\\)", ""))
 
+# Transfectant data
+a2_dat <- read_rds("../HaCaT_june_2018/outputs/dat.RDS") %>% 
+  select(peptide,length,exp_name,accession) %>% 
+  filter(length >= 8 & length <= 15, str_detect(accession,"HUMAN")) %>% 
+  mutate(exp_type = if_else(str_detect(exp_name,"^C"), 
+                                         "Control","DNCB"),
+         peptide = str_replace_all(peptide,"\\(.*?\\)", ""))
+
+a2_dncb_mods <- read_rds("../HaCaT_june_2018/outputs/a2_dncb_mods.RDS")
+
 wt_logos <- read_rds("data/hacat-wt-pred-logos-dat.rds")
 iedb_wt_logos <- read_rds("data/ideb-wt-logos-dat.rds")
 ideb_a2_logos <- read_rds("data/iedb-logos-A2.rds")
@@ -42,6 +52,10 @@ a2_bind_plot <- read_rds("../HaCaT_june_2018/outputs/hacat_pred_binders_plot.RDS
 glut_sub <- read_rds("data/glut_sub.RDS")
 ker_sub <- read_rds("data/ker_sub.RDS")
 
+rini_df <- read_rds("../HaCaT_june_2018/outputs/rini_df.RDS")
+ker_df <- read_rds("../HaCaT_june_2018/outputs/ker_df.RDS")
+
+cell_viability <- read_rds("data/cell-viability-output-20-12-2018.rds")
 # Marine-1, Horizon-1, Horizon-3, Marine-2, Horizon-2
 my_cols <- c("#005C84","#FCBC00","#E73037","#74C9E5","#EF7D00")
 ```
@@ -63,9 +77,9 @@ background-size: contain
 class: inverse,center,top
 background-image: url(img/tasmanian-devil.jpg)
 background-position: center
-background-size: contain
+background-size: 100%
 
-# .content-box-marine[Tasmanian Devil proteomics]
+# .content-box-neutral.white.bold[Tasmanian Devil proteomics]
 
 ---
 
@@ -98,12 +112,28 @@ class: inverse,middle
 ]
 
 ---
+
+class: hide-slide-number,bottom,right
+background-image: url(img/denver-guilty-dog.jpg)
+background-size: cover
+
+# .black.bold[The dog ate <br> my homework]
+
+---
 class: center,right
 background-image: url(img/Blausen_0014_AllergicDermatitis.png)
 background-position: left
 background-size: contain
 
 # Skin sensitiser proteomics
+
+---
+
+class: inverse
+background-image: url(img/hacat-a2-04-01-2019.jpg)
+background-size: 100%
+
+# .content.top.left.black.bold[HaCaT cells]
 
 ---
 
@@ -176,13 +206,13 @@ class: split-two
 # Hypothesis
 
 .horizon-1.bold[DNCB] (2,4-Dinitrochlorobenzene) and .horizon-1.bold[DPCP] (Diphenylcyclopropenone)
-modified peptides stimulate CD8+ T-cells
+modified peptides stimulate CD8<sup>+</sup> T-cells
 
 ]]
 
 .column.horizon-1-slide[.content.middle.center[
 
-```{r,out.width="85%",echo=FALSE}
+```{r,out.width="85%",echo=FALSE, cache=TRUE}
 knitr::include_graphics("img/mhc-dncb-peptide.png")
 ```
 ]]
@@ -200,18 +230,96 @@ modulate the peptidome
 
 ]]
 
-.column.horizon-1-slide[.content.middle.center[
+.column.horizon-1-slide[.content.vmiddle.center[
+![](img/newtons-cradle.gif)
 
 ]]
 
 ---
+
+class: inverse, center, middle
+background-image: url(img/jelly-beans.jpg)
+background-size: 100%
+
+## .content-box-neutral.white.bold[Mass spectrometry proteomics]
+
+---
+
+layout: true
+class: split-four 
+
+.column.inverse[.content.center.vmiddle[
+## Sample preparation
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Mass spectrometry
+]]
+
+.column.inverse[.content.center.vmiddle[
+## Peptide identification
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Bioinformatics & validation
+]]
+
+???
+
+Sample prep
+1. Cell culture
+2. Purification of MHC I
+3. HPLC separation of peptides
+
+MS
+1. LC separation
+2. Ionize peptides
+3. Analyse the mass
+4. Detect the ions
+MS/MS
+5. Fragment the peptide
+6. Analyse fragment mass
+7. Detect fragment ions
+
+Peptide identification
+1. De novo tags
+2. Database searches
+3. PTM identification
+4. Homology search
+5. Statistical filtering
+
+Bioinformatics and validation
+1. Distributions, motifs, literature searching etc.
+---
+
+class: show-1000
+
+---
+
+class: show-1100
+count: false
+
+---
+
+class: show-1110
+count: false
+
+---
+
+class: show-1111
+count: false
+
+---
+
+layout: false
 class: split-two 
 
 .column.inverse[.content.center.vmiddle[
 
 Number of peptide N-mers, n = 6
 
-```{r, fig.retina=4,echo=FALSE}
+```{r, fig.retina=4,echo=FALSE, cache=TRUE}
 dat_sub %>% 
   select(length, exp_type, exp_name) %>% 
   group_by(length, exp_name) %>% 
@@ -240,7 +348,7 @@ dat_sub %>%
 
 Percentage of peptide N-mers, n = 6
 
-```{r, fig.retina=4,echo=FALSE}
+```{r, fig.retina=4,echo=FALSE, cache=TRUE}
 dat_sub %>% 
   select(length, exp_type, exp_name) %>% 
   group_by(exp_name, length) %>% 
@@ -276,7 +384,7 @@ class: split-two
 
 Intersection between all peptides
 
-```{r, upset-plot,fig.retina=4, fig.asp=0.8,out.width="100%", echo=FALSE}
+```{r, upset-plot,fig.retina=4, fig.asp=0.8,out.width="100%", echo=FALSE, cache=TRUE}
 
 du <- dat_sub %>% 
   select(peptide, exp_type) %>% 
@@ -294,7 +402,8 @@ upset(as.data.frame(du), nsets = 2,
       matrix.color = my_cols[2], 
       sets.bar.color = my_cols[c(1,3)],
       mainbar.y.label = "Peptide Intersections", sets.x.label = "Number of Peptides",
-      text.scale = 1.6)
+      #c(intersection size title, intersection size tick labels, set size title, set size tick labels, set names, numbers above bars)
+      text.scale = c(1.6, 1.6, 1.6, 1, 1.6, 2))
 ```
 
 ]]
@@ -303,7 +412,7 @@ upset(as.data.frame(du), nsets = 2,
 
 Intersection of 9-mers
 
-```{r, upset-2,upset-plot,fig.retina=4,fig.asp=0.8,out.width="100%", echo=FALSE}
+```{r, upset-2,upset-plot,fig.retina=4,fig.asp=0.8,out.width="100%", echo=FALSE, cache=TRUE}
 du2 <- dat_sub %>% 
   filter(length == 9) %>% 
   select(peptide, exp_type) %>% 
@@ -321,7 +430,8 @@ upset(as.data.frame(du2), nsets = 2,
       main.bar.color = my_cols[1], 
       sets.bar.color = my_cols[c(1,3)],
       mainbar.y.label = "Peptide Intersections", sets.x.label = "Number of Peptides", 
-      text.scale = 1.6)
+      #c(intersection size title, intersection size tick labels, set size title, set size tick labels, set names, numbers above bars)
+      text.scale = c(1.6, 1.6, 1.6, 1, 1.6, 2))
 ```
 
 ]]
@@ -334,7 +444,7 @@ class: split-two
 
 Immune epitope database peptides
 
-```{r, iedb-logos, fig.retina=4, echo=FALSE,fig.asp=0.8,out.width="100%",message=F}
+```{r, iedb-logos, fig.retina=4, echo=FALSE,fig.asp=0.8,out.width="100%",message=F, cache=TRUE}
 # IEDB logos
 ggseqlogo(iedb_wt_logos)
 ```
@@ -345,7 +455,7 @@ ggseqlogo(iedb_wt_logos)
 
 Peptide classification model
 
-```{r, wt_logos,fig.retina=4,fig.asp=0.8,out.width="100%", echo=FALSE}
+```{r, wt_logos,fig.retina=4,fig.asp=0.8,out.width="100%", echo=FALSE, cache=TRUE}
 ggseqlogo(wt_logos)
 ```
 
@@ -358,7 +468,7 @@ There were 1000 9-mer peptides for each allotype for the IEDB peptides
 ---
 class: inverse
 
-```{r, wt_preds,fig.retina=6,echo=FALSE,fig.asp=0.6,out.width="100%"}
+```{r, wt_preds,fig.retina=6,echo=FALSE,fig.asp=0.6,out.width="100%", cache=TRUE}
 bind_plot + scale_fill_gradient(low = my_cols[5], high = my_cols[1]) +
   labs(title = "Identified NetMHC binding predicted 9-mer peptides ",
       subtitle = "Predicted binders in blue") 
@@ -380,7 +490,7 @@ HLA-A*31:01, 10mer, .horizon-1.bold[RFC(+DNP)PFAERTR], Glutathione S-transferase
 
 .column.horizon-1-slide[.content.center.vmiddle[
 
-```{r dncb-mods-table, out.width="100%",echo=FALSE}
+```{r dncb-mods-table, out.width="100%",echo=FALSE, cache=TRUE}
 # Find DNCB modifications
 DT::datatable(dat %>% 
                filter(str_detect(peptide,"\\+166"), length >= 8 & length <= 15) %>% 
@@ -404,7 +514,7 @@ class: split-two
 HLA-B*40:01, 9mer, .horizon-1.bold[AETEC(+DNP)RYAL] <br> Keratin type I cytoskeletal 13
 
 
-```{r kera-scan,warning=FALSE, echo=FALSE,fig.retina=4,fig.asp=0.7,out.width="100%"}
+```{r kera-scan,warning=FALSE, echo=FALSE,fig.retina=4,fig.asp=0.7,out.width="100%", cache=TRUE}
 ker_sub %>% ggplot(aes(x = mz,y = intensity)) + 
   geom_bar(stat="identity", width = 0.001) +
   #geom_density(stat="identity") +
@@ -429,7 +539,7 @@ ker_sub %>% ggplot(aes(x = mz,y = intensity)) +
 
 HLA-A*31:01, 10mer, .white.bold[RFC(+DNP)PFAERTR] <br> Glutathione S-transferase omega-1
 
-```{r glut-scan,warning=FALSE, echo=FALSE,fig.retina=4,fig.asp=0.7,out.width="100%"}
+```{r glut-scan,warning=FALSE, echo=FALSE,fig.retina=4,fig.asp=0.7,out.width="100%", cache=TRUE}
 glut_sub %>% ggplot(aes(x = mz,y = intensity)) + 
   geom_bar(stat="identity", width = 0.001) +
   xlim(c(483.5,485)) +
@@ -451,16 +561,368 @@ glut_sub %>% ggplot(aes(x = mz,y = intensity)) +
 
 ---
 
-class: horizon-1-slide,center,middle
+class: split-three
 
-# Horizon 1
-## Heading 2 Marine
-Dying cells actively regulate adaptive immune responses
+.column.inverse[.content.center.vmiddle[
 
-.footer-note.tiny[[Nature Reviews Immunology volume 17, pages 262–275 (2017)](https://www.nature.com/articles/nri.2017.9)]
+HLA-B\*40:01 9-mer, AETEC(+DNP)RYAL <br> .small[Keratin, type I cytoskeletal 13]
+
+```{r keratin-mhc, echo=FALSE,cache=TRUE}
+knitr::include_graphics("img/b40_keratin_dnp_top_2.png")
+```
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+HLA-A\*31:01, 10-mer RFC(+DNP)PFAERTR <br> .small[Glutathione S-transferase omega-1] 
+
+```{r gst-mhc,echo=FALSE, cache=TRUE}
+knitr::include_graphics("img/a31_glut_dnp_top.png")
+```
+
+]]
+
+.column.horizon-2-slide[.content.center.vmiddle[
+
+.small[Glutathione S-transferase omega-1]
+
+```{r gst, echo=FALSE, cache=TRUE}
+knitr::include_graphics("img/glut_transferase.png")
+```
+
+]]
 
 ---
 
+class: inverse
+background-image: url(img/hacat-a2-04-01-2019.jpg)
+background-size: 100%
+
+# .content.black.bold[HaCaT HLA-A*02:01 <br> transfectant cells]
+---
+
+class: split-two 
+
+.column.inverse[.content.center.vmiddle[
+
+Number of peptide N-mers, n = 3
+
+```{r, fig.retina=4,echo=FALSE, cache=TRUE}
+a2_dat %>% 
+  select(length, exp_type, exp_name) %>% 
+  group_by(length, exp_name) %>% 
+  mutate(n_peps = n()) %>% 
+  ungroup() %>% 
+  distinct() %>% 
+  group_by(length,exp_type) %>% 
+  summarise(mean_peps = mean(n_peps), sqn = sqrt(n()),  sem = sd(n_peps)/sqn) %>%
+  ggplot(aes(x = length, y = mean_peps,fill = exp_type)) +
+  geom_bar(stat='identity') +
+  geom_errorbar(aes(ymin=mean_peps-sem, ymax=mean_peps+sem),
+                width=.2) +
+  scale_x_continuous(breaks=seq(8, 15, 1)) +
+  theme_minimal(base_size = 16) +
+  theme(legend.position = "") +
+  xlab("Peptide length") +
+  ylab("Number of peptides") +
+  #scale_fill_brewer(palette="Set1") +
+  scale_fill_manual(values = my_cols[c(1,3)]) +
+  facet_wrap(~ exp_type)
+```
+
+]]
+
+.column.inverse[.content.center.vmiddle[
+
+Percentage of peptide N-mers, n = 3
+
+```{r, fig.retina=4,echo=FALSE, cache=TRUE}
+a2_dat %>% 
+  select(length, exp_type, exp_name) %>% 
+  group_by(exp_name, length) %>% 
+  summarise(n = n()) %>% 
+  mutate(f_peps = n/sum(n), 
+         exp_type = if_else(str_detect(exp_name,"^C"), 
+                                         "Control","DNCB")) %>% 
+  ungroup() %>%
+  distinct() %>% 
+  group_by(exp_type,length) %>% 
+  summarise(mean_peps = mean(f_peps), sqn = sqrt(n()),  sem = sd(f_peps)/sqn) %>%
+  ggplot(aes(x = length, y = mean_peps,fill = exp_type)) +
+  geom_bar(stat='identity') +
+   geom_errorbar(aes(ymin=mean_peps-sem, ymax=mean_peps+sem),
+                 width=.2) +
+  scale_x_continuous(breaks=seq(8, 15, 1)) +
+          scale_y_continuous(labels=scales::percent, limits = c(0,0.7)) +
+  theme_minimal(base_size = 16) +
+  theme(legend.position = "") +
+  xlab("Peptide length") +
+  ylab("Percentage of peptides") +
+  #scale_fill_brewer(palette="Set1") +
+  scale_fill_manual(values = my_cols[c(1,3)]) +
+  facet_wrap(~ exp_type)
+```
+
+]]
+---
+
+class: split-two 
+
+.column.inverse[.content.center.vmiddle[
+
+Intersection between all peptides
+
+```{r, upset-a2,fig.retina=4, fig.asp=0.8,out.width="100%", echo=FALSE, cache=TRUE}
+
+du_a2 <- a2_dat %>% 
+  select(peptide, exp_type) %>% 
+  group_by(exp_type,peptide) %>% 
+  distinct() %>% 
+  tally() %>% 
+  mutate(n = as.integer(n)) %>% 
+  spread(exp_type,n, fill = 0) %>%
+  mutate(peptide = as.factor(peptide))
+
+upset(as.data.frame(du_a2), nsets = 2,  
+      number.angles = 0, point.size = 5, 
+      line.size = 2,order.by = "freq", 
+      main.bar.color = my_cols[1], 
+      matrix.color = my_cols[2], 
+      sets.bar.color = my_cols[c(1,3)],
+      mainbar.y.label = "Peptide Intersections", sets.x.label = "Number of Peptides",
+      #c(intersection size title, intersection size tick labels, set size title, set size tick labels, set names, numbers above bars)
+      text.scale = c(1.6, 1.6, 1.6, 1, 1.6, 2))
+```
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+Intersection of 9-mers
+
+```{r, upset-2-a2,fig.retina=4,fig.asp=0.8,out.width="100%", echo=FALSE, cache=TRUE}
+du2_a2 <- a2_dat %>% 
+  filter(length == 9) %>% 
+  select(peptide, exp_type) %>% 
+  group_by(exp_type,peptide) %>% 
+  distinct() %>% 
+  tally() %>% 
+  mutate(n = as.integer(n)) %>% 
+  spread(exp_type,n, fill = 0) %>%
+  mutate(peptide = as.factor(peptide))
+
+upset(as.data.frame(du2_a2), nsets = 2,  
+      number.angles = 0, point.size = 5, 
+      line.size = 2,order.by = "freq", 
+      matrix.color = my_cols[2], 
+      main.bar.color = my_cols[1], 
+      sets.bar.color = my_cols[c(1,3)],
+      mainbar.y.label = "Peptide Intersections", sets.x.label = "Number of Peptides", 
+      #c(intersection size title, intersection size tick labels, set size title, set size tick labels, set names, numbers above bars)
+      text.scale = c(1.6, 1.6, 1.6, 1, 1.6, 2))
+```
+
+]]
+
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+Immune epitope database peptides
+
+```{r, iedb-a2-logos, fig.retina=4, echo=FALSE,fig.asp=0.8,out.width="100%",message=F, cache=TRUE}
+# IEDB logos
+ggseqlogo(ideb_a2_logos)
+```
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+Peptide classification model
+
+```{r, a2_logos,fig.retina=4,fig.asp=0.8,out.width="100%", echo=FALSE, cache=TRUE}
+ggseqlogo(a2_logos)
+```
+
+]]
+
+???
+
+There were 1000 9-mer peptides for each allotype for the IEDB peptides
+
+---
+class: inverse
+
+```{r, a2_preds,fig.retina=6,echo=FALSE,fig.asp=0.6,out.width="100%", cache=TRUE}
+a2_bind_plot + scale_fill_gradient(low = my_cols[5], high = my_cols[1]) +
+  labs(title = "Identified NetMHC binding predicted 9-mer peptides ",
+      subtitle = "Predicted binders in blue") 
+```
+
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+## DNCB modified peptides
+
+HLA-A\*02:01 9-mer, .horizon-1.bold[GLLDPQC(+DNP)RL] <br> Ribonuclease inhibitor
+
+HLA-A\*02:01 10-mer, .horizon-1.bold[KLLEGEEC(+DNP)RL] <br> Keratin, type II cytoskeletal 5
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+```{r a2-dncb-mods-table, out.width="100%",echo=FALSE, cache=TRUE}
+# Find DNCB modifications
+DT::datatable(a2_dncb_mods %>% 
+  select("Peptide" = peptide, 
+         "Replicate" = exp_name) %>% 
+    arrange(Peptide), 
+  rownames = FALSE, options = list(dom = 't'))
+```
+
+]]
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+HLA-A*02:01, 9-mer, .bold.horizon-1[GLLDPQC(+DNP)RL] <br> Ribonuclease inhibitor
+
+```{r a2-rini-scan, warning=FALSE, echo=FALSE,fig.retina=4,fig.asp=0.7,out.width="100%", cache=TRUE}
+rini_df %>% ggplot(aes(x = mz,y = intensity)) + 
+  geom_bar(stat="identity", width = 0.001) +
+  xlim(590,593) +
+  #ylim(0,5e5) +
+  theme_minimal() +
+  xlab("mass/charge") +
+  ylab("Intensity") +
+  annotate("text", x = 590.45, y = 4e5 , label = "590.78, DNCB") +
+  annotate("text", x = 591.9, y = 3e5 , label = "592.28, DNCB-D3" ) +
+  scale_fill_manual(values = my_cols) +
+  scale_y_continuous(labels = function(x) format(x, scientific = TRUE)) 
+  # ggtitle("HLA-A*02:01, 9-mer, GLLDPQC(+DNP)RL", 
+  #         subtitle = "Ribonuclease inhibitor") 
+```
+
+.tiny[Doubly charged peptide: DNCB-D<sub>3</sub> is 3 mass units heavier, divided by 2 charges = 1.5 Da mass difference]
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+HLA-A*02:01, 10-mer, .bold.white[KLLEGEEC(+DNP)RL] <br> Keratin type II cytoskeletal 5
+
+```{r a2-ker-scan, warning=FALSE, echo=FALSE,fig.retina=4,fig.asp=0.7,out.width="100%", cache=TRUE}
+# Labels 
+dat_text <- data.frame(
+  label = c("454.05, DNCB-D3","453.55, DNCB-D3"),
+  exp_name   = c("DNCB 2", "DNCB 3"))
+
+ker_df %>% 
+  ggplot(aes(x = mz,y = intensity)) + 
+  geom_bar(stat="identity", width = 0.001) +
+  xlim(452.0,454.5) +
+  #ylim(0,2e5) +
+  theme_minimal() +
+  xlab("mass/charge") +
+  ylab("Intensity") +
+  annotate("text", x = 452.3, y = 15e4 , label = "452.55, DNCB") +
+  geom_text(data    = dat_text,
+  mapping = aes(x = c(453.75,453.05), y = c(15e4,15e4), label = label)) +
+  scale_fill_manual(values = my_cols) +
+  scale_y_continuous(labels = function(x) format(x, scientific = TRUE)) +
+  # ggtitle("HLA-A*02:01, 10-mer, KLLEGEEC(+DNP)RL", 
+  #         subtitle = "Keratin, type II cytoskeletal 5") +
+  facet_wrap(~exp_name, nrow =2)
+```
+
+.tiny[Triply charged peptide: DNCB-D<sub>3</sub> is 3 mass units heavier, divided by 3 charges = 1 Da mass difference]
+
+]]
+
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+HLA-A\*02:01, 9-mer, GLLDPQC(+DNP)RL <br> .small[Ribonuclease inhibitor]
+
+```{r rini, echo=FALSE,cache=TRUE}
+knitr::include_graphics("img/rini_dnp_modified_peptide.png")
+```
+
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+HLA-A\*02:01, 10-mer, KLLEGEEC(+DNP)RL <br> .small[Keratin, type II cytoskeletal 5] 
+
+```{r kerr-II-mhc, echo=FALSE,cache=TRUE}
+knitr::include_graphics("img/keratin_dnp_modified_peptide.png")
+```
+
+]]
+
+---
+
+layout: true
+class: inverse with-border border-white
+
+.column[
+  .split-five[
+  .row.bg-main1[.content[
+# Recap 
+  ]]
+  .row.bg-main2[.content[
+.horizon-1[No support for altered peptidome hypothesis yet:] <br>
+The majority of the peptidome is observed $\pm$ sensitiser.
+  ]]
+  .row.bg-main3[.content[
+.horizon-1[Support for the direct stimulation hypothesis:] <br>
+Observation of sensitiser modified peptides.
+  ]]
+  .row.bg-main4[.content[
+.horizon-1[Evidence for sensitiser effect on cellular detoxification mechanism:] <br>
+Modification of Glutathione S-transferase omega-1.
+  ]]
+  .row.bg-main5[.content[
+.horizon-1[Large variance observed in DNCB treated cells:] <br> 
+Indication of DNCB toxicity at 10 $\mu$M?
+  ]]
+]]
+
+---
+
+class: gray-row2-col1 gray-row3-col1 gray-row4-col1 gray-row5-col1
+
+---
+
+class: gray-row3-col1 gray-row4-col1 gray-row5-col1
+
+---
+
+class: gray-row4-col1 gray-row5-col1
+
+---
+
+class: gray-row5-col1
+
+---
+
+---
+
+layout: false
 class: split-two 
 
 .column.inverse[.content.center.vmiddle[
@@ -471,8 +933,8 @@ class: split-two
 
 .column.horizon-1-slide[.content.center.vmiddle[
 
-```{r cell-viability, echo=FALSE, fig.retina=4,warning=FALSE}
-readr::read_rds("data/cell-viability-output-20-12-2018.rds") %>% 
+```{r cell-viability, echo=FALSE, fig.retina=4,cache=TRUE,warning=FALSE}
+cell_viability %>% 
   ggplot(aes(conc,max, colour = assay)) + 
   geom_point() +
   geom_line() +
@@ -495,50 +957,59 @@ readr::read_rds("data/cell-viability-output-20-12-2018.rds") %>%
 ---
 
 layout: true
-class: split-four 
+class: split-two inverse with-border border-white
 
-.column.inverse[.content.center.vmiddle[
-## Sample preparation
+.column[
+  .split-three[
+  .row.bg-main1[.content[
+# Central questions 
+  ]]
+  .row.bg-main2[.content[
+.horizon-1[Are the modified peptides real and immunogenic?] <br>
+
++ Peptides have been synthesised. 
++ Peptides need to be modified and have spectra checked.
++ ELISPOT test on patient samples.
+  ]]
+  .row.bg-main3[.content[
+.horizon-1[What are sensitisers doing to the proteome?] <br>
+ 
++ Protein turnover assays for DNCB and DPCP treated HaCaT A2 performed, but not processed.
+  ]]
 ]]
 
-.column.horizon-1-slide[.content.center.vmiddle[
-## Mass spectrometry
-]]
-
-.column.inverse[.content.center.vmiddle[
-## Peptide identification
-]]
-
-.column.horizon-1-slide[.content.center.vmiddle[
-## Bioinformatics & validation
+.column[.vmiddle[
+.content.nopadding[
+![](img/dog-paper-ripped-up.jpg)]
 ]]
 
 ---
 
-class: show-1000
+class: gray-row2-col1 gray-row3-col1 
 
 ---
 
-class: show-1100
-count: false
+class: gray-row3-col1 
 
 ---
-
-class: show-1110
-count: false
-
----
-
-class: show-1111
-count: false
 
 ---
 
 layout: false
 class: inverse
-<!-- background-image: url(img/george-costanza.gif) -->
-<!-- background-size: fill -->
+background-image: url(img/george-costanza.gif)
+background-size: 100% 
 
-# The end
+<!-- # The end -->
 
-.img-fill[![](img/george-costanza.gif)]
+<!-- .img-fill[![](img/george-costanza.gif)] -->
+
+<!-- class: horizon-1-slide,center,middle -->
+
+<!-- # Horizon 1 -->
+<!-- ## Heading 2 Marine -->
+<!-- Dying cells actively regulate adaptive immune responses -->
+
+<!-- .footer-note.tiny[[Nature Reviews Immunology volume 17, pages 262–275 (2017)](https://www.nature.com/articles/nri.2017.9)] -->
+
+<!-- --- -->

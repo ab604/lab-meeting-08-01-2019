@@ -17,6 +17,7 @@
     <script src="libs/crosstalk/js/crosstalk.min.js"></script>
     <link rel="stylesheet" href="uos-fonts.css" type="text/css" />
     <link rel="stylesheet" href="uos.css" type="text/css" />
+    <link rel="stylesheet" href="assets\ninpo.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -48,9 +49,9 @@ background-size: contain
 class: inverse,center,top
 background-image: url(img/tasmanian-devil.jpg)
 background-position: center
-background-size: contain
+background-size: 100%
 
-# .content-box-marine[Tasmanian Devil proteomics]
+# .content-box-neutral.white.bold[Tasmanian Devil proteomics]
 
 ---
 
@@ -83,12 +84,28 @@ class: inverse,middle
 ]
 
 ---
+
+class: hide-slide-number,bottom,right
+background-image: url(img/denver-guilty-dog.jpg)
+background-size: cover
+
+# .black.bold[The dog ate &lt;br&gt; my homework]
+
+---
 class: center,right
 background-image: url(img/Blausen_0014_AllergicDermatitis.png)
 background-position: left
 background-size: contain
 
 # Skin sensitiser proteomics
+
+---
+
+class: inverse
+background-image: url(img/hacat-a2-04-01-2019.jpg)
+background-size: 100%
+
+# .content.top.left.black.bold[HaCaT cells]
 
 ---
 
@@ -161,7 +178,7 @@ class: split-two
 # Hypothesis
 
 .horizon-1.bold[DNCB] (2,4-Dinitrochlorobenzene) and .horizon-1.bold[DPCP] (Diphenylcyclopropenone)
-modified peptides stimulate CD8+ T-cells
+modified peptides stimulate CD8&lt;sup&gt;+&lt;/sup&gt; T-cells
 
 ]]
 
@@ -183,11 +200,89 @@ modulate the peptidome
 
 ]]
 
-.column.horizon-1-slide[.content.middle.center[
+.column.horizon-1-slide[.content.vmiddle.center[
+![](img/newtons-cradle.gif)
 
 ]]
 
 ---
+
+class: inverse, center, middle
+background-image: url(img/jelly-beans.jpg)
+background-size: 100%
+
+## .content-box-neutral.white.bold[Mass spectrometry proteomics]
+
+---
+
+layout: true
+class: split-four 
+
+.column.inverse[.content.center.vmiddle[
+## Sample preparation
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Mass spectrometry
+]]
+
+.column.inverse[.content.center.vmiddle[
+## Peptide identification
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Bioinformatics &amp; validation
+]]
+
+???
+
+Sample prep
+1. Cell culture
+2. Purification of MHC I
+3. HPLC separation of peptides
+
+MS
+1. LC separation
+2. Ionize peptides
+3. Analyse the mass
+4. Detect the ions
+MS/MS
+5. Fragment the peptide
+6. Analyse fragment mass
+7. Detect fragment ions
+
+Peptide identification
+1. De novo tags
+2. Database searches
+3. PTM identification
+4. Homology search
+5. Statistical filtering
+
+Bioinformatics and validation
+1. Distributions, motifs, literature searching etc.
+---
+
+class: show-1000
+
+---
+
+class: show-1100
+count: false
+
+---
+
+class: show-1110
+count: false
+
+---
+
+class: show-1111
+count: false
+
+---
+
+layout: false
 class: split-two 
 
 .column.inverse[.content.center.vmiddle[
@@ -270,8 +365,8 @@ HLA-A*31:01, 10mer, .horizon-1.bold[RFC(+DNP)PFAERTR], Glutathione S-transferase
 
 .column.horizon-1-slide[.content.center.vmiddle[
 
-<div id="htmlwidget-550a3585c18681cae8ab" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-550a3585c18681cae8ab">{"x":{"filter":"none","data":[["AETEC(+166.00)RYAL","AETEC(+166.00)RYAL","AETEC(+166.00)RYAL","AETEC(+166.00)RYAL","RFC(+166.00)PFAERTR","RFC(+166.00)PFAERTR","RFC(+166.00)PFAERTR"],["DNCB 1A","DNCB 1B","DNCB 3A","DNCB 3B","DNCB 1A","DNCB 1B","DNCB 3A"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Peptide<\/th>\n      <th>Replicate<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-995dc08b6b8537f4a391" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-995dc08b6b8537f4a391">{"x":{"filter":"none","data":[["AETEC(+166.00)RYAL","AETEC(+166.00)RYAL","AETEC(+166.00)RYAL","AETEC(+166.00)RYAL","RFC(+166.00)PFAERTR","RFC(+166.00)PFAERTR","RFC(+166.00)PFAERTR"],["DNCB 1A","DNCB 1B","DNCB 3A","DNCB 3B","DNCB 1A","DNCB 1B","DNCB 3A"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Peptide<\/th>\n      <th>Replicate<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ]]
 ---
@@ -301,16 +396,221 @@ HLA-A*31:01, 10mer, .white.bold[RFC(+DNP)PFAERTR] &lt;br&gt; Glutathione S-trans
 
 ---
 
-class: horizon-1-slide,center,middle
+class: split-three
 
-# Horizon 1
-## Heading 2 Marine
-Dying cells actively regulate adaptive immune responses
+.column.inverse[.content.center.vmiddle[
 
-.footer-note.tiny[[Nature Reviews Immunology volume 17, pages 262–275 (2017)](https://www.nature.com/articles/nri.2017.9)]
+HLA-B\*40:01 9-mer, AETEC(+DNP)RYAL &lt;br&gt; .small[Keratin, type I cytoskeletal 13]
+
+&lt;img src="img/b40_keratin_dnp_top_2.png" width="1524" /&gt;
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+HLA-A\*31:01, 10-mer RFC(+DNP)PFAERTR &lt;br&gt; .small[Glutathione S-transferase omega-1] 
+
+&lt;img src="img/a31_glut_dnp_top.png" width="1621" /&gt;
+
+]]
+
+.column.horizon-2-slide[.content.center.vmiddle[
+
+.small[Glutathione S-transferase omega-1]
+
+&lt;img src="img/glut_transferase.png" width="1227" /&gt;
+
+]]
 
 ---
 
+class: inverse
+background-image: url(img/hacat-a2-04-01-2019.jpg)
+background-size: 100%
+
+# .content.black.bold[HaCaT HLA-A*02:01 &lt;br&gt; transfectant cells]
+---
+
+class: split-two 
+
+.column.inverse[.content.center.vmiddle[
+
+Number of peptide N-mers, n = 3
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-4-1.png" width="504" /&gt;
+
+]]
+
+.column.inverse[.content.center.vmiddle[
+
+Percentage of peptide N-mers, n = 3
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-5-1.png" width="504" /&gt;
+
+]]
+---
+
+class: split-two 
+
+.column.inverse[.content.center.vmiddle[
+
+Intersection between all peptides
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/upset-a2-1.png" width="100%" /&gt;
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+Intersection of 9-mers
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/upset-2-a2-1.png" width="100%" /&gt;
+
+]]
+
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+Immune epitope database peptides
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/iedb-a2-logos-1.png" width="100%" /&gt;
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+Peptide classification model
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/a2_logos-1.png" width="100%" /&gt;
+
+]]
+
+???
+
+There were 1000 9-mer peptides for each allotype for the IEDB peptides
+
+---
+class: inverse
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/a2_preds-1.png" width="100%" /&gt;
+
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+## DNCB modified peptides
+
+HLA-A\*02:01 9-mer, .horizon-1.bold[GLLDPQC(+DNP)RL] &lt;br&gt; Ribonuclease inhibitor
+
+HLA-A\*02:01 10-mer, .horizon-1.bold[KLLEGEEC(+DNP)RL] &lt;br&gt; Keratin, type II cytoskeletal 5
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+<div id="htmlwidget-e214f13cd2db40dffa4d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e214f13cd2db40dffa4d">{"x":{"filter":"none","data":[["GLLDPQC(+166.00)RL","KLLEGEEC(+166.00)RL","KLLEGEEC(+166.00)RL"],["DNCB 2","DNCB 2","DNCB 3"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Peptide<\/th>\n      <th>Replicate<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+]]
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+HLA-A*02:01, 9-mer, .bold.horizon-1[GLLDPQC(+DNP)RL] &lt;br&gt; Ribonuclease inhibitor
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/a2-rini-scan-1.png" width="100%" /&gt;
+
+.tiny[Doubly charged peptide: DNCB-D&lt;sub&gt;3&lt;/sub&gt; is 3 mass units heavier, divided by 2 charges = 1.5 Da mass difference]
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+HLA-A*02:01, 10-mer, .bold.white[KLLEGEEC(+DNP)RL] &lt;br&gt; Keratin type II cytoskeletal 5
+
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/a2-ker-scan-1.png" width="100%" /&gt;
+
+.tiny[Triply charged peptide: DNCB-D&lt;sub&gt;3&lt;/sub&gt; is 3 mass units heavier, divided by 3 charges = 1 Da mass difference]
+
+]]
+
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+
+HLA-A\*02:01, 9-mer, GLLDPQC(+DNP)RL &lt;br&gt; .small[Ribonuclease inhibitor]
+
+&lt;img src="img/rini_dnp_modified_peptide.png" width="1621" /&gt;
+
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+
+HLA-A\*02:01, 10-mer, KLLEGEEC(+DNP)RL &lt;br&gt; .small[Keratin, type II cytoskeletal 5] 
+
+&lt;img src="img/keratin_dnp_modified_peptide.png" width="1621" /&gt;
+
+]]
+
+---
+
+layout: true
+class: inverse with-border border-white
+
+.column[
+  .split-five[
+  .row.bg-main1[.content[
+# Recap 
+  ]]
+  .row.bg-main2[.content[
+.horizon-1[No support for altered peptidome hypothesis yet:] &lt;br&gt;
+The majority of the peptidome is observed `\(\pm\)` sensitiser.
+  ]]
+  .row.bg-main3[.content[
+.horizon-1[Support for the direct stimulation hypothesis:] &lt;br&gt;
+Observation of sensitiser modified peptides.
+  ]]
+  .row.bg-main4[.content[
+.horizon-1[Evidence for sensitiser effect on cellular detoxification mechanism:] &lt;br&gt;
+Modification of Glutathione S-transferase omega-1.
+  ]]
+  .row.bg-main5[.content[
+.horizon-1[Large variance observed in DNCB treated cells:] &lt;br&gt; 
+Indication of DNCB toxicity at 10 `\(\mu\)`M?
+  ]]
+]]
+
+---
+
+class: gray-row2-col1 gray-row3-col1 gray-row4-col1 gray-row5-col1
+
+---
+
+class: gray-row3-col1 gray-row4-col1 gray-row5-col1
+
+---
+
+class: gray-row4-col1 gray-row5-col1
+
+---
+
+class: gray-row5-col1
+
+---
+
+---
+
+layout: false
 class: split-two 
 
 .column.inverse[.content.center.vmiddle[
@@ -328,53 +628,62 @@ class: split-two
 ---
 
 layout: true
-class: split-four 
+class: split-two inverse with-border border-white
 
-.column.inverse[.content.center.vmiddle[
-## Sample preparation
+.column[
+  .split-three[
+  .row.bg-main1[.content[
+# Central questions 
+  ]]
+  .row.bg-main2[.content[
+.horizon-1[Are the modified peptides real and immunogenic?] &lt;br&gt;
+
++ Peptides have been synthesised. 
++ Peptides need to be modified and have spectra checked.
++ ELISPOT test on patient samples.
+  ]]
+  .row.bg-main3[.content[
+.horizon-1[What are sensitisers doing to the proteome?] &lt;br&gt;
+ 
++ Protein turnover assays for DNCB and DPCP treated HaCaT A2 performed, but not processed.
+  ]]
 ]]
 
-.column.horizon-1-slide[.content.center.vmiddle[
-## Mass spectrometry
-]]
-
-.column.inverse[.content.center.vmiddle[
-## Peptide identification
-]]
-
-.column.horizon-1-slide[.content.center.vmiddle[
-## Bioinformatics &amp; validation
+.column[.vmiddle[
+.content.nopadding[
+![](img/dog-paper-ripped-up.jpg)]
 ]]
 
 ---
 
-class: show-1000
+class: gray-row2-col1 gray-row3-col1 
 
 ---
 
-class: show-1100
-count: false
+class: gray-row3-col1 
 
 ---
-
-class: show-1110
-count: false
-
----
-
-class: show-1111
-count: false
 
 ---
 
 layout: false
 class: inverse
-&lt;!-- background-image: url(img/george-costanza.gif) --&gt;
-&lt;!-- background-size: fill --&gt;
+background-image: url(img/george-costanza.gif)
+background-size: 100% 
 
-# The end
+&lt;!-- # The end --&gt;
 
-.img-fill[![](img/george-costanza.gif)]
+&lt;!-- .img-fill[![](img/george-costanza.gif)] --&gt;
+
+&lt;!-- class: horizon-1-slide,center,middle --&gt;
+
+&lt;!-- # Horizon 1 --&gt;
+&lt;!-- ## Heading 2 Marine --&gt;
+&lt;!-- Dying cells actively regulate adaptive immune responses --&gt;
+
+&lt;!-- .footer-note.tiny[[Nature Reviews Immunology volume 17, pages 262–275 (2017)](https://www.nature.com/articles/nri.2017.9)] --&gt;
+
+&lt;!-- --- --&gt;
     </textarea>
 <script src="libs/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
