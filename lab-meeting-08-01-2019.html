@@ -31,6 +31,7 @@ class: center, middle, inverse, title-slide
 
 
 
+
 class: inverse
 background-image: url(img/rakeboarding.png)
 background-size: contain
@@ -46,7 +47,7 @@ background-size: contain
 
 ---
 
-class: inverse,center,top
+class: inverse,center,top, hide-slide-number
 background-image: url(img/tasmanian-devil.jpg)
 background-position: center
 background-size: 100%
@@ -64,21 +65,22 @@ background-size: contain
 
 ---
 
-class: inverse,middle
+class: split-50, hide-slide-number
 
-.pull-left[
+.column.inverse[.content.vmiddle[
 
 # Papers for 2019
 
-+ Skin sensitiser peptidomes and protein turnover
-+ Skin sensitiser whole cell proteomics
-+ Oesophageal cancer peptidome
-+ Tasmanian Devil peptidomes
-+ Tasmanian Devil DFT2 origins
-]
+### Skin sensitiser peptidomes and protein turnover
+### Skin sensitiser whole cell proteomics
+### Oesophageal cancer peptidome
+### Tasmanian Devil peptidomes
+### Tasmanian Devil DFT2 origins
 
-.pull-right[
-&lt;video width=600 height=600 autoplay loop&gt; 
+]]
+
+.column.horizon-1-slide[
+&lt;video height="100%" autoplay loop&gt; 
 &lt;source src="assets/wk3AUOvx86YTUSiw.mp4" type="video/mp4"/&gt;
 &lt;/video&gt;
 ]
@@ -227,14 +229,16 @@ class: split-two
 .column.inverse[.content.center.vmiddle[
 ## Peptidome analysis
 
-.img-contain[![](img/peptidome-analysis.png)]
+&lt;img src="img/peptidome-analysis.png" width="430" height="430" /&gt;
 
 ]]
 
 .column.horizon-1-slide[.content.center.vmiddle[
 ## Protein turnover analysis
 
-.img-contain[![](img/protein-turnover.png)]
+
+&lt;img src="img/protein-turnover.png" width="100%" /&gt;
+
 
 ]]
 
@@ -303,19 +307,32 @@ count: false
 
 ---
 
-class: show-1111
 count: false
+class: show-1111
 
 ---
 
+
 layout: false
+class: split-two, hide-slide-number
+
+.column.inverse[.content.center.vmiddle[
+# How do we know we have MHC I peptides?
+]]
+
+.column.inverse[.content.center.vmiddle.img-contain[
+![](img/middle_finger_gif.gif) 
+]]
+
+---
+
 class: split-two 
 
 .column.inverse[.content.center.vmiddle[
 
 Number of peptide N-mers, n = 6
 
-&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-2-1.png" width="504" /&gt;
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-4-1.png" width="504" /&gt;
 
 ]]
 
@@ -323,7 +340,7 @@ Number of peptide N-mers, n = 6
 
 Percentage of peptide N-mers, n = 6
 
-&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-3-1.png" width="504" /&gt;
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-5-1.png" width="504" /&gt;
 
 ]]
 ---
@@ -463,7 +480,7 @@ class: split-two
 
 Number of peptide N-mers, n = 3
 
-&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-4-1.png" width="504" /&gt;
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-6-1.png" width="504" /&gt;
 
 ]]
 
@@ -471,7 +488,7 @@ Number of peptide N-mers, n = 3
 
 Percentage of peptide N-mers, n = 3
 
-&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-5-1.png" width="504" /&gt;
+&lt;img src="lab-meeting-08-01-2019_files/figure-html/unnamed-chunk-7-1.png" width="504" /&gt;
 
 ]]
 ---
@@ -618,21 +635,27 @@ Indication of DNCB toxicity at 10 `\(\mu\)`M?
 
 ---
 
+count: false
 class: gray-row2-col1 gray-row3-col1 gray-row4-col1 gray-row5-col1
 
 ---
 
+count: false
 class: gray-row3-col1 gray-row4-col1 gray-row5-col1
 
 ---
 
+count: false
 class: gray-row4-col1 gray-row5-col1
 
 ---
 
+count: false
 class: gray-row5-col1
 
 ---
+
+count: false 
 
 ---
 
@@ -654,62 +677,49 @@ class: split-33
 ---
 
 layout: true
-class: split-two inverse with-border border-white
+class: inverse
+background-image: url(img/dog-paper-ripped-up.jpg)
+background-size: 100%
 
-.column[
-  .split-three[
+.split-four[
   .row.bg-main1[.content[
-# Central questions 
+# .bold[Central questions] 
   ]]
-  .row.bg-main2[.content[
-.horizon-1[Are the modified peptides real and immunogenic?] &lt;br&gt;
+  
+  .row.bg-main2[.content.content-box-marine[
+### .horizon-1[Are the modified peptides real and immunogenic?] &lt;br&gt;
 
 + Peptides have been synthesised. 
 + Peptides need to be modified and have spectra checked.
 + ELISPOT test on patient samples.
-  ]]
-  .row.bg-main3[.content[
-.horizon-1[What are sensitisers doing to the proteome?] &lt;br&gt;
+
+
+### .horizon-1[What are sensitisers doing to the proteome?] &lt;br&gt;
  
 + Protein turnover assays for DNCB and DPCP treated HaCaT A2 performed, but not processed.
-  ]]
 ]]
 
-.column[.vmiddle[
-.content.nopadding[
-![](img/dog-paper-ripped-up.jpg)]
-]]
+.row.bg-main3[]
+.row.bg-main4[]
+
+]
 
 ---
 
-class: gray-row2-col1 gray-row3-col1 
+count: false
+class: hide-row2 
 
 ---
 
-class: gray-row3-col1 
 
----
+count: false
 
 ---
 
 layout: false
 class: inverse
 background-image: url(img/george-costanza.gif)
-background-size: 100% 
-
-&lt;!-- # The end --&gt;
-
-&lt;!-- .img-fill[![](img/george-costanza.gif)] --&gt;
-
-&lt;!-- class: horizon-1-slide,center,middle --&gt;
-
-&lt;!-- # Horizon 1 --&gt;
-&lt;!-- ## Heading 2 Marine --&gt;
-&lt;!-- Dying cells actively regulate adaptive immune responses --&gt;
-
-&lt;!-- .footer-note.tiny[[Nature Reviews Immunology volume 17, pages 262–275 (2017)](https://www.nature.com/articles/nri.2017.9)] --&gt;
-
-&lt;!-- --- --&gt;
+background-size: 100%
     </textarea>
 <script src="libs/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

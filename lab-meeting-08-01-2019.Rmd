@@ -59,6 +59,7 @@ cell_viability <- read_rds("data/cell-viability-output-20-12-2018.rds")
 # Marine-1, Horizon-1, Horizon-3, Marine-2, Horizon-2
 my_cols <- c("#005C84","#FCBC00","#E73037","#74C9E5","#EF7D00")
 ```
+
 class: inverse
 background-image: url(img/rakeboarding.png)
 background-size: contain
@@ -74,7 +75,7 @@ background-size: contain
 
 ---
 
-class: inverse,center,top
+class: inverse,center,top, hide-slide-number
 background-image: url(img/tasmanian-devil.jpg)
 background-position: center
 background-size: 100%
@@ -92,21 +93,22 @@ background-size: contain
 
 ---
 
-class: inverse,middle
+class: split-50, hide-slide-number
 
-.pull-left[
+.column.inverse[.content.vmiddle[
 
 # Papers for 2019
 
-+ Skin sensitiser peptidomes and protein turnover
-+ Skin sensitiser whole cell proteomics
-+ Oesophageal cancer peptidome
-+ Tasmanian Devil peptidomes
-+ Tasmanian Devil DFT2 origins
-]
+### Skin sensitiser peptidomes and protein turnover
+### Skin sensitiser whole cell proteomics
+### Oesophageal cancer peptidome
+### Tasmanian Devil peptidomes
+### Tasmanian Devil DFT2 origins
 
-.pull-right[
-<video width=600 height=600 autoplay loop> 
+]]
+
+.column.horizon-1-slide[
+<video height="100%" autoplay loop> 
 <source src="assets/wk3AUOvx86YTUSiw.mp4" type="video/mp4"/>
 </video>
 ]
@@ -257,14 +259,20 @@ class: split-two
 .column.inverse[.content.center.vmiddle[
 ## Peptidome analysis
 
-.img-contain[![](img/peptidome-analysis.png)]
+```{r, echo=FALSE,cache=FALSE,out.width=430,out.height=430}
+knitr::include_graphics("img/peptidome-analysis.png")
+```
 
 ]]
 
 .column.horizon-1-slide[.content.center.vmiddle[
 ## Protein turnover analysis
 
-.img-contain[![](img/protein-turnover.png)]
+
+```{r, echo=FALSE,cache=FALSE,out.width="100%"}
+knitr::include_graphics("img/protein-turnover.png")
+```
+
 
 ]]
 
@@ -333,12 +341,25 @@ count: false
 
 ---
 
-class: show-1111
 count: false
+class: show-1111
 
 ---
 
+
 layout: false
+class: split-two, hide-slide-number
+
+.column.inverse[.content.center.vmiddle[
+# How do we know we have MHC I peptides?
+]]
+
+.column.inverse[.content.center.vmiddle.img-contain[
+![](img/middle_finger_gif.gif) 
+]]
+
+---
+
 class: split-two 
 
 .column.inverse[.content.center.vmiddle[
@@ -930,21 +951,27 @@ Indication of DNCB toxicity at 10 $\mu$M?
 
 ---
 
+count: false
 class: gray-row2-col1 gray-row3-col1 gray-row4-col1 gray-row5-col1
 
 ---
 
+count: false
 class: gray-row3-col1 gray-row4-col1 gray-row5-col1
 
 ---
 
+count: false
 class: gray-row4-col1 gray-row5-col1
 
 ---
 
+count: false
 class: gray-row5-col1
 
 ---
+
+count: false 
 
 ---
 
@@ -983,41 +1010,42 @@ cell_viability %>%
 ---
 
 layout: true
-class: split-two inverse with-border border-white
+class: inverse
+background-image: url(img/dog-paper-ripped-up.jpg)
+background-size: 100%
 
-.column[
-  .split-three[
+.split-four[
   .row.bg-main1[.content[
-# Central questions 
+# .bold[Central questions] 
   ]]
-  .row.bg-main2[.content[
-.horizon-1[Are the modified peptides real and immunogenic?] <br>
+  
+  .row.bg-main2[.content.content-box-marine[
+### .horizon-1[Are the modified peptides real and immunogenic?] <br>
 
 + Peptides have been synthesised. 
 + Peptides need to be modified and have spectra checked.
 + ELISPOT test on patient samples.
-  ]]
-  .row.bg-main3[.content[
-.horizon-1[What are sensitisers doing to the proteome?] <br>
+
+
+### .horizon-1[What are sensitisers doing to the proteome?] <br>
  
 + Protein turnover assays for DNCB and DPCP treated HaCaT A2 performed, but not processed.
-  ]]
 ]]
 
-.column[.vmiddle[
-.content.nopadding[
-![](img/dog-paper-ripped-up.jpg)]
-]]
+.row.bg-main3[]
+.row.bg-main4[]
+
+]
 
 ---
 
-class: gray-row2-col1 gray-row3-col1 
+count: false
+class: hide-row2 
 
 ---
 
-class: gray-row3-col1 
 
----
+count: false
 
 ---
 
@@ -1025,17 +1053,3 @@ layout: false
 class: inverse
 background-image: url(img/george-costanza.gif)
 background-size: 100% 
-
-<!-- # The end -->
-
-<!-- .img-fill[![](img/george-costanza.gif)] -->
-
-<!-- class: horizon-1-slide,center,middle -->
-
-<!-- # Horizon 1 -->
-<!-- ## Heading 2 Marine -->
-<!-- Dying cells actively regulate adaptive immune responses -->
-
-<!-- .footer-note.tiny[[Nature Reviews Immunology volume 17, pages 262–275 (2017)](https://www.nature.com/articles/nri.2017.9)] -->
-
-<!-- --- -->
