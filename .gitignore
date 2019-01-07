@@ -2,5 +2,6 @@
 .Rhistory
 .RData
 .DS_Store
-data
-img
+data/
+img/
+.Rmd
