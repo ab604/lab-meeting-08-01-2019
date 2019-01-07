@@ -199,6 +199,13 @@ background-size: contain
 
 ---
 
+background-image:url(img/pmhc-pathway.png)
+background-size: contain
+
+.footer-note.small.bold[based on: Sylvain Cardinaud, 2008]
+
+---
+
 class: split-two 
 
 .column.inverse[.content.center.vmiddle[
@@ -242,6 +249,25 @@ background-image: url(img/jelly-beans.jpg)
 background-size: 100%
 
 ## .content-box-neutral.white.bold[Mass spectrometry proteomics]
+
+---
+
+class: split-two
+
+.column.inverse[.content.center.vmiddle[
+## Peptidome analysis
+
+.img-contain[![](img/peptidome-analysis.png)]
+
+]]
+
+.column.horizon-1-slide[.content.center.vmiddle[
+## Protein turnover analysis
+
+.img-contain[![](img/protein-turnover.png)]
+
+]]
+
 
 ---
 
@@ -923,7 +949,7 @@ class: gray-row5-col1
 ---
 
 layout: false
-class: split-two 
+class: split-33
 
 .column.inverse[.content.center.vmiddle[
 
@@ -933,7 +959,7 @@ class: split-two
 
 .column.horizon-1-slide[.content.center.vmiddle[
 
-```{r cell-viability, echo=FALSE, fig.retina=4,cache=TRUE,warning=FALSE}
+```{r cell-viability,echo=FALSE,fig.retina=6,fig.asp=0.8,out.width="90%",cache=TRUE,warning=FALSE}
 cell_viability %>% 
   ggplot(aes(conc,max, colour = assay)) + 
   geom_point() +
